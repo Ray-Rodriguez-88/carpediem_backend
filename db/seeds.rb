@@ -15,4 +15,17 @@ rick = User.create(name:"Rick". username:"RGarza7",
 email:"rick@carpediem.com")
 
 
-code_challenge = Event.create(name:"code challenge", description:"test", priority: "high")
+code_challenge = Event.create(name:"code challenge", description:"test", priority: "high" time_start:10:00, time_end:11:00)
+lunch = Event.create(name:"lunch", description:"test", priority: "medium" time_start:12:00, time_end:13:00)
+
+initial_date = CalendarDate.create(date:Time.now)
+someTime= CalendarDate.create(date:2018-09-12 11:32:35)
+
+event_one = EventDate.create(event:code_challenge, calendar_date:someTime)
+event_two = EventDate.create(event:lunch, calendar_date:initial_date)
+
+UserCalendar.create(user:ray, event_date:event_two)
+UserCalendar.create(user:rick, calendar_date:someTime)
+
+
+
