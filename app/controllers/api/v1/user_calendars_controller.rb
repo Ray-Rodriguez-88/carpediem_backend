@@ -5,22 +5,22 @@ class Api::V1::UserCalendarsController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    if @user.save
-      render json: @user, status: :accepted
+    @user_calendar.update(user_calendar_params)
+    if @user_calendar.save
+      render json: @user_calendar, status: :accepted
     else
-      render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
+      render json: { errors: @user_calendar.errors.full_messages }, status: :unprocessible_entity
     end
   end
 
   private
 
-  def user_params
-    params.permit(:name,:email, :username)
+  def user_calendar_params
+    params.permit(:user_id,:event_id)
   end
 
-  def find_user
-    @user = User.find(params[:id])
+  def find_user_calendar
+    @user_calendar = UserCalendar.find(params[:id])
   end
 end
 end
